@@ -1,0 +1,174 @@
+/**
+ * Jetons de design Rex.
+ *
+ * Toutes les couleurs de l'application viennent d'ici. Aucune valeur codée en
+ * dur ailleurs : le thème clair n'est qu'une redéfinition de ces mêmes jetons,
+ * ce qui empêche les deux thèmes de diverger.
+ */
+
+:root {
+  color-scheme: dark;
+
+  /* Fond de page (hors application) */
+  --page: #2a3346;
+  --page-g1: #8a7a4e; --page-g2: #4a6a72; --page-g3: #1c2436;
+  --page-g4: #5c5a49; --page-g5: #2f3a4c; --page-g6: #151b28;
+
+  /* Surfaces */
+  --bg: #070b14;
+  --sidebar: #090e19;
+  --appbd: #182136;
+  --panel: #0e1524;
+  --panel2: #141d30;
+  --hover: #101a2b;
+  --rowhover: #111a2b;
+
+  /* Traits */
+  --line: #1d2942;
+  --line2: #27354f;
+  --line3: #162034;
+
+  /* Texte */
+  --txt: #eaeffb;
+  --mut: #8d9cba;
+  --dim: #5f6e8d;
+
+  --shadow: rgba(0, 0, 0, .58);
+  --tipbg: #121b2c;
+  --tipbd: #2c3d5c;
+  --track: #1a2438;
+  --tlline: #22304a;
+  --grid: #18233a;
+
+  /* Opacité du ruban de flux : plus soutenue en clair, sinon il disparaît */
+  --rib-op: .30;
+  --rib-op2: .26;
+
+  /* Marque */
+  --gold: #f0b429;
+  --gold-d: #b8860f;
+  --gold-dd: #c98a16;
+  --acc-tx: #f0b429;
+  --onink: #2a1c00;
+
+  --nav-bg: linear-gradient(90deg, #3a2c07, #241c06);
+  --nav-tx: #ffd979;
+  --nav-bd: #6b520f;
+  --nav-n-bg: #1b2740;
+  --nav-n-tx: #a3b4d4;
+  --nav-n-abg: #6b520f;
+  --nav-n-atx: #ffe6ac;
+  --cur-bg: #2a2206;
+  --cur-tx: #ffd979;
+
+  /* Couleurs d'accent */
+  --teal: #2dd4bf;
+  --blue: #5b8cff;
+  --violet: #a78bfa;
+  --green: #34d399;
+  --red: #f87171;
+  --amber: #fbbf24;
+
+  /* Teintes (fond + texte) des pastilles et étiquettes */
+  --t-gold-bg: #332703; --t-gold-fg: #f0b429;
+  --t-teal-bg: #0b3733; --t-teal-fg: #2dd4bf;
+  --t-blue-bg: #152447; --t-blue-fg: #7ba3ff;
+  --t-vio-bg: #241a44;  --t-vio-fg: #a78bfa;
+  --t-red-bg: #3a1616;  --t-red-fg: #f87171;
+  --t-grn-bg: #0f3527;  --t-grn-fg: #34d399;
+  --tag-r-fg: #fca5a5;
+  --tag-a-bg: #3a2a06; --tag-a-fg: #fcd34d;
+  --tag-g-fg: #6ee7b7;
+  --tag-b-fg: #93b4ff;
+
+  --tl-done-bd: #1d6b4c;
+  --tl-now-halo: rgba(240, 180, 41, .12);
+  --qa1: #6b520f; --qa2: #1d4a66; --qa3: #1d6b4c; --qa4: #4a2a66;
+
+  --ai-bg: linear-gradient(158deg, #1a1c26, #11141f);
+  --ai-bd: #2e2a1c;
+  --ai-track: #252a38;
+  --ai-btn-bg: #20283a;
+  --ai-btn-bd: #364460;
+  --ai-btn-tx: #dbe5f7;
+
+  /* Rampe du parcours de dédouanement : or → turquoise, une teinte par étape.
+     Identique dans les deux thèmes pour que l'identité visuelle ne bouge pas. */
+  --s1: #f0b429; --s2: #d9b23e; --s3: #b8b055;
+  --s4: #90ae72; --s5: #63b295; --s6: #2dd4bf;
+}
+
+:root[data-theme='light'] {
+  color-scheme: light;
+
+  --page: #e9edf5;
+  --page-g1: #d9cfae; --page-g2: #bcd2d6; --page-g3: #c3cbdb;
+  --page-g4: #e2ded0; --page-g5: #cdd6e4; --page-g6: #aeb9cd;
+
+  --bg: #f4f6fb;
+  --sidebar: #ffffff;
+  --appbd: #dfe5f0;
+  --panel: #ffffff;
+  --panel2: #f2f5fa;
+  --hover: #f1f4f9;
+  --rowhover: #f5f7fc;
+
+  --line: #e4e9f2;
+  --line2: #d6dde9;
+  --line3: #eef1f7;
+
+  --txt: #101828;
+  --mut: #4f5b70;
+  --dim: #8592a8;
+
+  --shadow: rgba(24, 36, 64, .18);
+  --tipbg: #ffffff;
+  --tipbd: #d6dde9;
+  --track: #e8ecf4;
+  --tlline: #dfe5ef;
+  --grid: #eceff6;
+
+  --rib-op: .42;
+  --rib-op2: .34;
+
+  /* L'or de marque n'a pas assez de contraste en texte sur blanc :
+     les liens et accents typographiques passent sur une déclinaison foncée. */
+  --acc-tx: #9a6f08;
+
+  --nav-bg: linear-gradient(90deg, #fdf1d2, #fffaef);
+  --nav-tx: #8a6407;
+  --nav-bd: #ecd79a;
+  --nav-n-bg: #eaeff7;
+  --nav-n-tx: #5b6880;
+  --nav-n-abg: #f0b429;
+  --nav-n-atx: #3d2c02;
+  --cur-bg: #fdf1d2;
+  --cur-tx: #8a6407;
+
+  /* Couleurs d'état assombries : les versions du thème sombre sont illisibles sur blanc */
+  --red: #dc2626;
+  --green: #0f8a5f;
+  --amber: #b57f0a;
+
+  --t-gold-bg: #fdf1d2; --t-gold-fg: #a06f06;
+  --t-teal-bg: #d5f4ef; --t-teal-fg: #0d7d70;
+  --t-blue-bg: #e2eaff; --t-blue-fg: #2b52c9;
+  --t-vio-bg: #ece4ff;  --t-vio-fg: #6d3fd1;
+  --t-red-bg: #fde4e4;  --t-red-fg: #c0342f;
+  --t-grn-bg: #d7f4e5;  --t-grn-fg: #0f8a5f;
+  --tag-r-fg: #b42318;
+  --tag-a-bg: #fdefcb; --tag-a-fg: #92600a;
+  --tag-g-fg: #067a52;
+  --tag-b-fg: #2b52c9;
+
+  --tl-done-bd: #8fd9bb;
+  --tl-now-halo: rgba(240, 180, 41, .24);
+  --qa1: #ecd79a; --qa2: #b9d3ea; --qa3: #9fdcc4; --qa4: #cdb8f0;
+
+  --ai-bg: linear-gradient(158deg, #fffaef, #f6f8fc);
+  --ai-bd: #ece0c2;
+  --ai-track: #e8ecf4;
+  --ai-btn-bg: #eef1f7;
+  --ai-btn-bd: #d6dde9;
+  --ai-btn-tx: #35405a;
+}
