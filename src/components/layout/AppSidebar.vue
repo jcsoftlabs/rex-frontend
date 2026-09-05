@@ -98,6 +98,10 @@ const GROUPES: Groupe[] = [
   padding: 20px 15px;
   display: flex;
   flex-direction: column;
+  /* La navigation complète dépasse la hauteur d'un écran de portable :
+     elle défile pour son compte, sans entraîner le contenu principal. */
+  overflow-y: auto;
+  scrollbar-width: thin;
 }
 .brand { display: flex; align-items: center; gap: 11px; padding: 2px 5px 6px; }
 .mark {

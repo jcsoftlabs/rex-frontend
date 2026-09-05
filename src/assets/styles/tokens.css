@@ -9,11 +9,6 @@
 :root {
   color-scheme: dark;
 
-  /* Fond de page (hors application) */
-  --page: #2a3346;
-  --page-g1: #8a7a4e; --page-g2: #4a6a72; --page-g3: #1c2436;
-  --page-g4: #5c5a49; --page-g5: #2f3a4c; --page-g6: #151b28;
-
   /* Surfaces */
   --bg: #070b14;
   --sidebar: #090e19;
@@ -100,10 +95,6 @@
 
 :root[data-theme='light'] {
   color-scheme: light;
-
-  --page: #e9edf5;
-  --page-g1: #d9cfae; --page-g2: #bcd2d6; --page-g3: #c3cbdb;
-  --page-g4: #e2ded0; --page-g5: #cdd6e4; --page-g6: #aeb9cd;
 
   --bg: #f4f6fb;
   --sidebar: #ffffff;
