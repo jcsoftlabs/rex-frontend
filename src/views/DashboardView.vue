@@ -131,17 +131,6 @@ const dossier = computed(() => d.value?.dossierEnAvant ?? null)
 
           <div class="funnel">
             <FlowRibbon :flux="d.flux" etape-mise-en-avant="inspection" />
-            <div class="ftip">
-              <h5>{{ ETAPE_LABEL.inspection }}</h5>
-              <dl>
-                <dt>Dossiers passés</dt><dd>{{ d.flux[2].passes }}</dd>
-                <dt>En attente</dt><dd>{{ d.flux[2].enAttente }} dont {{ d.flux[2].enRetard }} en retard</dd>
-                <dt>Délai moyen</dt><dd>{{ formaterNombre(d.flux[2].delaiMoyenJours, 1) }} jours</dd>
-              </dl>
-              <RouterLink to="/dossiers" class="btn-gold">
-                Voir les dossiers <AppIcon name="arrowRight" :size="13" :width="2.4" />
-              </RouterLink>
-            </div>
           </div>
 
           <table class="tbl">
@@ -336,19 +325,7 @@ const dossier = computed(() => d.value?.dossierEnAvant ?? null)
 .bottom { display: grid; grid-template-columns: 1.9fr 1.05fr 1fr; gap: 14px; }
 .bottom > * { min-width: 0; }
 
-/* Le tooltip est positionné en pourcentage : il suit le graphique quand il se redimensionne. */
-.funnel { position: relative; margin: 0 10px; }
-.ftip {
-  position: absolute; left: 30.5%; top: 19%; width: 202px;
-  background: var(--tipbg); border: 1px solid var(--tipbd);
-  border-radius: 12px; padding: 13px 14px;
-  box-shadow: 0 22px 44px var(--shadow);
-}
-.ftip h5 { font-size: 13px; font-weight: 600; margin-bottom: 9px; }
-.ftip dl { display: grid; grid-template-columns: auto 1fr; gap: 7px 10px; font-size: 11px; margin-bottom: 12px; }
-.ftip dt { color: var(--dim); }
-.ftip dd { text-align: right; font-weight: 600; }
-.ftip .btn-gold { font-size: 11.5px; padding: 8px; }
+.funnel { margin: 0 10px; }
 
 .ref { color: inherit; }
 .ref:hover { color: var(--acc-tx); }

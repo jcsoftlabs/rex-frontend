@@ -8,7 +8,7 @@ export const useDossiersStore = defineStore('dossiers', () => {
   const courant = ref<Dossier | null>(null)
   const chargement = ref(false)
   const erreur = ref<string | null>(null)
-  const filtres = ref<FiltresListe>({ recherche: '', statut: '', type: '' })
+  const filtres = ref<FiltresListe>({ recherche: '', statut: '', type: '', etapeCourante: '' })
 
   const total = computed(() => liste.value.length)
   const enRetard = computed(() => liste.value.filter((d) => d.statut === 'en_retard').length)
@@ -40,7 +40,7 @@ export const useDossiersStore = defineStore('dossiers', () => {
   }
 
   function reinitialiserFiltres(): void {
-    filtres.value = { recherche: '', statut: '', type: '' }
+    filtres.value = { recherche: '', statut: '', type: '', etapeCourante: '' }
   }
 
   return { liste, courant, chargement, erreur, filtres, total, enRetard, charger, chargerUn, reinitialiserFiltres }

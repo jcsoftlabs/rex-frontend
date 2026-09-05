@@ -1,14 +1,21 @@
 <script setup lang="ts">
 import { onMounted, watch } from 'vue'
-import { RouterLink } from 'vue-router'
+import { RouterLink, useRoute } from 'vue-router'
 import AppTopbar from '@/components/layout/AppTopbar.vue'
 import StatusTag from '@/components/ui/StatusTag.vue'
 import { useDossiersStore } from '@/stores/dossiers'
 import { ETAPE_LABEL, STATUT_LABEL, TYPE_DOSSIER_LABEL } from '@/types'
 import { formaterDateCourte, formaterMontant } from '@/composables/useFormat'
 
+const route = useRoute()
 const store = useDossiersStore()
-onMounted(() => store.charger())
+
+onMounted(() => {
+  /* Arrivée depuis le graphique de flux : `?etape=inspection` pré-filtre la liste. */
+  const etape = route.query.etape
+  if (typeof etape === 'string') store.filtres.etapeCourante = etape
+  store.charger()
+})
 
 /* Le filtrage est fait par l'API (mock aujourd'hui, backend demain) : on
    recharge à chaque changement plutôt que de filtrer côté client. */
@@ -33,6 +40,10 @@ const ORDRE = ['arrivee', 'declaration', 'inspection', 'paiement_droits', 'mainl
         <select v-model="store.filtres.type" class="mini">
           <option value="">Tous les types</option>
           <option v-for="(lbl, cle) in TYPE_DOSSIER_LABEL" :key="cle" :value="cle">{{ lbl }}</option>
+        </select>
+        <select v-model="store.filtres.etapeCourante" class="mini">
+          <option value="">Toutes les étapes</option>
+          <option v-for="(lbl, cle) in ETAPE_LABEL" :key="cle" :value="cle">{{ lbl }}</option>
         </select>
         <button class="link" @click="store.reinitialiserFiltres()">Réinitialiser</button>
       </div>
