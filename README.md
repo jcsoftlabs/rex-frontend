@@ -72,6 +72,32 @@ et ces types sera signalée par `npm run typecheck`, avant la mise en production
 
 Les listes acceptent les paramètres `recherche`, `statut`, `type` et `page`.
 
+## Déploiement
+
+Le projet est configuré pour **Vercel** (`vercel.json`) : build `npm run build`,
+dossier de sortie `dist/`.
+
+La réécriture `/(.*) → /index.html` est indispensable : sans elle, ouvrir ou
+recharger directement `/dossiers` renvoie un 404, le routage étant assuré côté
+navigateur par Vue Router en mode `history`. Vercel sert les fichiers présents
+sur le disque avant d'appliquer les réécritures, donc `dist/assets/` n'est pas
+affecté.
+
+Renseignez `VITE_API_BASE_URL` dans les variables d'environnement du projet
+Vercel le jour où le backend est en ligne.
+
+### Attention aux types Node
+
+`vite.config.ts` importe `node:url` et a donc besoin de `@types/node`. Le
+typage est séparé en deux projets TypeScript :
+
+- `tsconfig.app.json` — `src/`, types `vite/client` uniquement
+- `tsconfig.node.json` — `vite.config.ts`, types `node` uniquement
+
+Cette séparation évite que les globales Node (`process`, `Buffer`, `__dirname`)
+deviennent visibles depuis le code de l'application, où elles n'existent pas à
+l'exécution dans le navigateur.
+
 ## Organisation
 
 ```
